@@ -764,7 +764,7 @@
   .efb-next:active{transform:translateY(3px);box-shadow:0 1px 0 var(--candy-pink-d);}
   .walk-eq-ref{font-family:"Jua";font-size:13px;color:var(--candy-mint-d);text-align:center;background:rgba(63,208,182,.12);border-radius:8px;padding:2px 12px;flex:0 0 auto;}
 
-  /* ─── 선생님 메뉴 (로그인 카드 안) ─── */
+  /* ─── 선생님 설정 (로그인 카드 안) ─── */
   .tch-toggle{margin-top:6px;font-family:'Jua';font-size:clamp(13px,1.8vh,16px);color:var(--candy-grape-d);background:#fff;
     border:2px solid #DDD6FE;border-radius:999px;padding:7px 18px;cursor:pointer;box-shadow:0 2px 0 rgba(155,123,255,.2);transition:.12s;}
   .tch-toggle:hover{transform:translateY(-1px);background:#F4F0FF;}
@@ -855,7 +855,7 @@
           <span class="tch-link" id="tchShareLink"></span>
           <button class="tch-copy" onclick="copyShareLink()">📋 복사</button>
         </div>
-        <div class="tch-help" style="margin-top:0;">이 주소로 들어온 학생은 선생님 메뉴가 보이지 않고 우리 반 학생 명단으로 바로 입장합니다.</div>
+        <div class="tch-help" style="margin-top:0;">이 주소로 들어온 학생은 선생님 설정가 보이지 않고 우리 반 학생 명단으로 바로 입장합니다.</div>
       </div>
     </div>
     <p class="login-note">선생님께서 구글 시트 <b>학생명단</b>에<br>번호·이름을 입력해 주시면 여기에 표시돼요.</p>
@@ -1527,7 +1527,7 @@ function _stripTeacherOnlyFromDom(){
   }
 }
 
-/* ── 선생님 메뉴 토글 ── */
+/* ── 선생님 설정 토글 ── */
 function toggleTeacherPanel(){
   var p = document.getElementById('tchPanel');
   if (!p) return;
@@ -1568,7 +1568,7 @@ function _setTchStatus(text, cls){
   s.style.display = '';
 }
 
-/* 선생님 메뉴: 연결하기 */
+/* 선생님 설정: 연결하기 */
 function teacherConnect(){
   var input = document.getElementById('tchExecInput');
   if (!input) return;
@@ -1594,7 +1594,7 @@ function teacherConnect(){
   );
 }
 
-/* 선생님 메뉴: 연결 확인 (테스트) */
+/* 선생님 설정: 연결 확인 (테스트) */
 function teacherTest(){
   if (!SHEET_EXEC_URL) {
     var input = document.getElementById('tchExecInput');
@@ -1609,7 +1609,7 @@ function teacherTest(){
   );
 }
 
-/* 선생님 메뉴: 연결 해제 */
+/* 선생님 설정: 연결 해제 */
 function teacherDisconnect(){
   try { localStorage.removeItem(EXEC_KEY); } catch (e) {}
   SHEET_EXEC_URL = ''; RUN_MODE = 'demo';
@@ -1618,7 +1618,7 @@ function teacherDisconnect(){
   loadStudentRoster();
 }
 
-/* 선생님 메뉴: 학생용 입장 주소 복사 */
+/* 선생님 설정: 학생용 입장 주소 복사 */
 function copyShareLink(){
   var linkEl = document.getElementById('tchShareLink');
   if (!linkEl) return;
@@ -1743,7 +1743,7 @@ function restartFresh(){
 (function initLogin(){
   _detectMode();
   if (RUN_MODE === 'student') {
-    /* 학생 링크: 선생님 메뉴 DOM 자체를 제거 */
+    /* 학생 링크: 선생님 설정 DOM 자체를 제거 */
     _stripTeacherOnlyFromDom();
   }
   loadStudentRoster();
